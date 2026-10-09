@@ -1,0 +1,90 @@
+[
+  {
+    "n": 1,
+    "id": "2606.05665",
+    "url": "https://huggingface.co/papers/2606.05665",
+    "title": "V2V-Bench: A Comprehensive Benchmark for Video-to-Video Generation Evaluation",
+    "date": "2026-06-03",
+    "source": "hf-search"
+  },
+  {
+    "n": 2,
+    "id": "N/A",
+    "url": "https://papers.nips.cc/paper_files/paper/2025/file/f832f6d70ea73779369142dac61a389f-Paper-Conference.pdf",
+    "title": "InfinityStar: Unified Spacetime AutoRegressive Modeling for Visual Generation",
+    "date": "N/A",
+    "source": "web"
+  },
+  {
+    "n": 3,
+    "id": "2610.11993",
+    "url": "https://arxiv.org/abs/2610.11993",
+    "title": "DataVista: Diagnosing Multimodal LLMs on Data Video Understanding",
+    "date": "2026-10-08",
+    "source": "arxiv"
+  },
+  {
+    "n": 4,
+    "id": "N/A",
+    "url": "https://github.com/GML-MMGroup/HUG-VIS",
+    "title": "HUG-VIS",
+    "date": "N/A",
+    "source": "web"
+  },
+  {
+    "n": 5,
+    "id": "N/A",
+    "url": "https://huggingface.co/datasets/JavisVerse/JavisBench",
+    "title": "JavisBench",
+    "date": "N/A",
+    "source": "web"
+  },
+  {
+    "n": 6,
+    "id": "3802588",
+    "url": "https://dl.acm.org/doi/10.1145/3802588",
+    "title": "A Survey: Spatiotemporal Consistency in Video Generation",
+    "date": "2026-05-18",
+    "source": "web"
+  },
+  {
+    "n": 7,
+    "id": "N/A",
+    "url": "https://ace.ewapub.com/article/view/35449",
+    "title": "From Transformers to World Simulators: A Survey on Generative AI Video Production Technology",
+    "date": "2026-07-21",
+    "source": "web"
+  },
+  {
+    "n": 8,
+    "id": "N/A",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026W/VGBE/papers/Safavigerdini_Generative_AI_Video_Evaluation_Survey_of_Metrics_Benchmarks_and_Trustworthiness_CVPRW_2026_paper.pdf",
+    "title": "Generative AI Video Evaluation: Survey of Metrics, Benchmarks, and Trustworthiness",
+    "date": "N/A",
+    "source": "web"
+  },
+  {
+    "n": 9,
+    "id": "2602.24289",
+    "url": "https://arxiv.org/pdf/2602.24289v1.pdf",
+    "title": "Mode Seeking meets Mean Seeking for Fast Long Video Generation",
+    "date": "N/A",
+    "source": "arxiv"
+  },
+  {
+    "n": 10,
+    "id": "2605.24652",
+    "url": "https://huggingface.co/papers/2605.24652",
+    "title": "AVBench: Human-Aligned and Automated Evaluation Benchmark for Audio-Video Generative Models",
+    "date": "2026-05-22",
+    "source": "hf-search"
+  },
+  {
+    "n": 11,
+    "id": "2610.06801",
+    "url": "https://huggingface.co/papers/2610.06801",
+    "title": "MC-Sparse: Deconstructing and Closing the Dense-Sparse Attention Gap in Diffusion Transformers",
+    "date": "2026-10-04",
+    "source": "hf-search"
+  }
+]

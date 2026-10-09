@@ -69,3 +69,4 @@ def test_arxiv_search_empty_query():
 def test_source_tools_registered():
     names = [t.name for t in SOURCE_TOOLS]
     assert names == ["arxiv_search", "hf_daily_papers", "hf_search_papers", "web_search", "web_fetch"]
+

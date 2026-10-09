@@ -1,0 +1,50 @@
+[
+  {
+    "n": 1,
+    "id": "2610.06147",
+    "url": "https://arxiv.org/abs/2610.06147",
+    "title": "Efficient Test-time Adaptation through Candidate Verification and Divergence Shifts",
+    "date": "2026-10-05",
+    "source": "arxiv"
+  },
+  {
+    "n": 2,
+    "id": "2610.08858",
+    "url": "https://arxiv.org/abs/2610.08858",
+    "title": "LRCC: Generalizing Low-Rank Compression with Conditional Computation",
+    "date": "2026-10-05",
+    "source": "arxiv"
+  },
+  {
+    "n": 3,
+    "id": "2610.05383",
+    "url": "https://arxiv.org/abs/2610.05383",
+    "title": "Sibyl: An Efficient Small-large Model Collaboration Framework for Long-horizon Tasks",
+    "date": "2026-10-04",
+    "source": "arxiv"
+  },
+  {
+    "n": 4,
+    "id": "2605.02363",
+    "url": "https://huggingface.co/papers/2605.02363",
+    "title": "When Correct Isn't Usable: Improving Structured Output Reliability in Small Language Models",
+    "date": "2026-05-03",
+    "source": "hf-search"
+  },
+  {
+    "n": 5,
+    "id": "2404.14294",
+    "url": "https://huggingface.co/papers/2404.14294",
+    "title": "A Survey on Efficient Inference for Large Language Models",
+    "date": "2024-04-22",
+    "source": "hf-search"
+  },
+  {
+    "n": 6,
+    "id": "N/A",
+    "url": "https://link.springer.com/article/10.1007/s43684-026-00130-7",
+    "title": "Strategies for Computational Efficiency in Small Language Models",
+    "date": "2026-04-09",
+    "source": "web"
+  }
+]

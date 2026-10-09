@@ -56,8 +56,12 @@ def test_save_outputs_raises_on_missing_report(tmp_path):
 
 def test_save_outputs_writes_files(tmp_path):
     mock_backend = MagicMock()
-    report_bytes = b"# Survey\n\nBody [1].\n\n## References\n[1] Paper. url. (2025)"
-    sources_bytes = json.dumps([{"n": 1, "url": "https://arxiv.org/abs/1", "source": "arxiv"}]).encode("utf-8")
+    report_bytes = b"# Survey\n\nBody [1][2][3].\n\n## References\n[1] Paper 1. arxiv. https://arxiv.org/abs/1 (2025)\n[2] Paper 2. hf-search. https://huggingface.co/papers/2 (2025)\n[3] Paper 3. web. https://example.com/3 (2025)"
+    sources_bytes = json.dumps([
+        {"n": 1, "url": "https://arxiv.org/abs/1", "source": "arxiv"},
+        {"n": 2, "url": "https://huggingface.co/papers/2", "source": "hf-search"},
+        {"n": 3, "url": "https://example.com/3", "source": "web"},
+    ]).encode("utf-8")
 
     from agents import REPORT_PATH, SOURCES_PATH
     with pytest.MonkeyPatch.context() as mp:
@@ -72,5 +76,6 @@ def test_save_outputs_writes_files(tmp_path):
         assert meta_file.exists()
         meta = json.loads(meta_file.read_text(encoding="utf-8"))
         assert meta["topic"] == "My Topic"
-        assert meta["n_sources"] == 1
-        assert meta["source_families"] == ["arxiv"]
+        assert meta["n_sources"] == 3
+        assert meta["source_families"] == ["arxiv", "hf-search", "web"]
+

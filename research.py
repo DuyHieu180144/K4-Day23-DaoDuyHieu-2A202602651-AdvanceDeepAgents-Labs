@@ -40,9 +40,13 @@ def build_prompt(topic):
         f"Follow all instructions in your system prompt:\n"
         f"1. Plan with write_todos and split into >= 3 sub-questions.\n"
         f"2. Delegate to researcher subagents in parallel with full context.\n"
-        f"3. Verify notes, merge into /tmp/work/research/sources.json (ensuring at least 3 source families: arxiv, hf-daily, hf-search, web).\n"
+        f"   CRITICAL (RUBRIC 2.2): You MUST cover at least 3 distinct source families among 'arxiv', 'hf-daily', 'hf-search', 'web'.\n"
+        f"   Instruct subagents explicitly to use web_search, arxiv_search, and Hugging Face tools so all families are gathered.\n"
+        f"3. Verify notes, merge into /tmp/work/research/sources.json.\n"
+        f"   Check that sources.json contains at least 3 distinct source families. If fewer, delegate another researcher before writing.\n"
         f"4. Write the report body to /tmp/work/report/report.md without ## References (following REPORT_TEMPLATE.md).\n"
-        f"5. Run /tmp/work/research/finalize_citations.py using execute to regenerate References and update sources.json.\n"
+        f"   CRITICAL: Use ONLY bare citations like [1], [2], [1][2]. NEVER write markdown links like [1](url) or [[1](url)].\n"
+        f"5. Run /tmp/work/research/finalize_citations.py using execute to regenerate ## References and update sources.json.\n"
         f"6. Run /tmp/work/research/check_citations.py using execute and fix any issues until it outputs OK.\n"
         f"7. Have citation-checker spot-check sample claims."
     )
@@ -118,9 +122,18 @@ def save_outputs(backend, topic, messages, elapsed, model_name, reports_dir=REPO
     if not isinstance(sources, list) or not sources:
         raise RuntimeError("sources.json is empty or not a list")
 
+    from check_citations import check
+    problems = check(report_text, sources)
+    if problems:
+        raise RuntimeError("Citation check failed:\n" + "\n".join(problems))
+
     families = sorted(list({
         s.get("source") for s in sources if isinstance(s, dict) and s.get("source")
     }))
+
+    valid_families = {"arxiv", "hf-daily", "hf-search", "web"}
+    if len(valid_families & set(families)) < 3:
+        raise RuntimeError(f"Report has only {len(valid_families & set(families))} source families (need >= 3): {families}")
 
     slug = slugify(topic)
     reports_path = Path(reports_dir)
@@ -166,6 +179,10 @@ def main(topic):
             {"messages": [{"role": "user", "content": build_prompt(topic)}]},
             config={"recursion_limit": 1000},
         )
+        # Guarantee finalizer and validator have run inside sandbox (idempotent per GUIDE 2.6 / RUBRIC 7.8)
+        backend.execute(f"python3 {FINALIZER_PATH}")
+        backend.execute(f"python3 {VALIDATOR_PATH}")
+
         messages = result.get("messages", []) if isinstance(result, dict) else []
         elapsed = time.monotonic() - start
         try:

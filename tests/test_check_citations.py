@@ -103,3 +103,4 @@ def test_uncited_source_and_missing_source():
     problems = check(report, sources)
     assert any("[3]" in p for p in problems)
     assert any("[2]" in p for p in problems)
+

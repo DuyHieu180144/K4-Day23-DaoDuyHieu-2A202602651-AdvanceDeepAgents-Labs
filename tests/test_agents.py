@@ -61,3 +61,4 @@ def test_build_lead_agent():
         assert kwargs["model"] == mock_model
         assert kwargs["backend"] == mock_backend
         assert len(kwargs["middleware"]) >= 3  # TodoListMiddleware + 2 limits
+

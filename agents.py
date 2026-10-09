@@ -77,6 +77,7 @@ Strict Workflow Protocol:
      ## Trends and open problems
      Recent developments (past 2 years) and unsolved questions with citations [n].
    - CRITICAL RULES:
+     * CITATION SYNTAX MUST BE BARE NUMBERS: Use strictly [1], [2], [1][2]. NEVER write markdown links like [1](url) or [[1](url)] for citations.
      * DO NOT write the `## References` section: the finalizer script will generate it automatically!
      * Every non-obvious claim must have an inline citation `[n]`.
      * The report body must reference sources from at least 3 different source families.
@@ -86,6 +87,7 @@ Strict Workflow Protocol:
    - Execute the citation finalizer script inside the sandbox:
      `python3 {FINALIZER_PATH}`
    - This script cleans unused sources, merges duplicate URLs, renumbers `[n]` in order of appearance, generates `## References`, and rewrites `{SOURCES_PATH}`.
+   - If it outputs 'NOT finalized', fix the citation formatting in `{REPORT_PATH}` and execute again.
    - Execute this script again after any modification to the report text.
 
 7. VALIDATING CITATIONS:
